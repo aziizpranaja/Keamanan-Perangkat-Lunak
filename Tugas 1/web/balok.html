@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Luas dan Volume Balok</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+   body{
+    background: rgb(2,0,36);
+background: linear-gradient(to bottom, #0477c2 0%,rgba(0,212,255,1) 100%);
+    text-align: center;
+    margin: 10%;
+   }
+   p#grade_out{
+    font-weight: bold;
+   }
+  </style>
+
+ </head>
+<body> 
+ <div>
+ <form action="#" id="myform">
+  Panjang <input type="text" id="n1"><br><br>
+  Lebar <input type="text" id="n2"><br><br>
+  Tinggi <input type="text" id="n3"><br><br>
+  
+  <input type="button" onclick="data()" value="simpan" class="btn btn-primary">
+  <input type="reset" value="reset" class="btn btn-warning">
+  <a href="beranda.html" class="btn btn-danger">Back</a>
+
+<!-- output -->
+  
+  
+
+  <p id="jumlah_out"></p>
+  <br>
+  <p id="grade_out"></p>
+ </form>
+ <br><br>
+
+ <script>
+function data(){
+  
+   var m1 = document.getElementById('n1').value;
+   var m2 = document.getElementById('n2').value;
+   var m3 = document.getElementById('n3').value;
+   
+   var number = /^[+]?[0-9]+\.[0-9]+$/;
+
+   if (m1==null || m1=="") {
+   	alert("Panjang Tidak Boleh kosong !");
+   	return false;
+   };
+   if (!m1.match(number)) {
+   	alert("Panjang Harus berbentuk Angka !");
+   	return false;
+   };
+   if (m2==null || m2=="") {
+   	alert("Lebar Tidak Boleh kosong !");
+   	return false;
+   };
+    if (!m2.match(number)) {
+   	alert("Lebar Harus berbentuk Angka !");
+   	return false;
+   };
+    if (m3==null || m3=="") {
+   	alert("Tinggi Tidak Boleh kosong !");
+   	return false;
+   };
+    if (!m3.match(number)) {
+   	alert("Tinggi Harus berbentuk Angka !");
+   	return false;
+   };
+
+   volume = m1*m2*m3;
+   luas = 2*((m1*m2)+(m1*m3)+(m2*m3));
+
+   hasil1 = volume.toFixed(2);
+   hasil2 = luas.toFixed(2);
+
+
+
+
+/*output*/
+   document.getElementById("jumlah_out").innerHTML="Volume : "+hasil1;
+   document.getElementById("grade_out").innerHTML="Luas : "+hasil2;
+
+
+  
+
+}
+ </script>
+ </div>
+</body>
+</html>
